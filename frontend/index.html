@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recommendation System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span>Deep<span>Recs</span></span>
+        </div>
+
+    </nav>
+
+    <main class="container">
+        <div class="dashboard-grid">
+            
+            <!-- Left Sidebar -->
+            <aside class="sidebar">
+                <div class="glass-panel control-panel">
+                    <h3>Select User</h3>
+                    <div class="custom-select">
+                        <select id="user-select">
+                            <option value="" disabled selected>Loading users...</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down select-icon"></i>
+                    </div>
+
+                    <div id="user-profile" class="user-profile hidden">
+                        <div class="profile-header">
+                            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                            <div>
+                                <h4 id="profile-name">Name</h4>
+                                <span class="badge" id="profile-type">Type</span>
+                            </div>
+                        </div>
+                        <div class="interests-container">
+                            <p class="subtitle">Interests</p>
+                            <div id="profile-interests" class="badges"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel strategy-panel">
+                    <h3>Engine Strategy</h3>
+                    <div class="radio-group">
+                        <label class="radio-card">
+                            <input type="radio" name="strategy" value="hybrid" checked>
+                            <span class="card-content">
+                                <span>Hybrid (AI)</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="strategy" value="collaborative">
+                            <span class="card-content">
+                                <span>Collaborative</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="strategy" value="content">
+                            <span class="card-content">
+                                <span>Content-Based</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="glass-panel metrics-panel">
+                    <h3>Live Telemetry</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-label">Latency</span>
+                            <span class="metric-value"><span id="metric-latency">0</span><small>ms</small></span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Cache Hit %</span>
+                            <span class="metric-value" id="metric-cache-hit">0%</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Total Reqs</span>
+                            <span class="metric-value" id="metric-requests">0</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Cache Size</span>
+                            <span class="metric-value" id="metric-cache-size">0</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <section class="main-content">
+                <div class="header-section">
+                    <h2>Recommended for You</h2>
+                    <div class="request-meta hidden" id="request-meta">
+                        Response time: <span class="mono" id="req-time">--</span> | 
+                        Strategy: <span class="badge" id="req-strategy">--</span>
+                    </div>
+                </div>
+
+                <div id="recommendations-container" class="recommendations-grid">
+                    <!-- Placeholder state -->
+                    <div class="empty-state">
+
+                        <p>Select a user to generate AI recommendations</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
