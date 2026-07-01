@@ -36,6 +36,11 @@ graph TD
 
 ![Dashboard View](assets/dashboard.png)
 
+
+## YouTube Demo Link
+
+https://youtu.be/2gFA3aW0kC0
+
 ## Project Structure
 
 ```text
